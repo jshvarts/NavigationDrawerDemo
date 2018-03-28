@@ -1,3 +1,14 @@
 <resources>
-    <string name="app_name">NavigationDrawerDemo</string>
+    <string name="app_name">Navigation Drawer Demo</string>
+
+    <string-array name="websites">
+        <item>Google+</item>
+        <item>Facebook</item>
+        <item>Twitter</item>
+        <item>Github</item>
+        <item>YouTube</item>
+        <item>Dribbble</item>
+        <item>Vimeo</item>
+    </string-array>
+
 </resources>
