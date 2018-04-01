@@ -5,6 +5,8 @@ import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
+import android.view.View
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_navigation_drawer.*
 
 
@@ -19,7 +21,16 @@ class NavigationDrawerActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        drawerToggle = ActionBarDrawerToggle(this, drawerLayout, R.string.drawer_open, R.string.drawer_closed)
+        drawerToggle = object : ActionBarDrawerToggle(this, drawerLayout, R.string.drawer_open, R.string.drawer_closed) {
+            override fun onDrawerOpened(drawerView: View) {
+                super.onDrawerOpened(drawerView)
+                toolbar.title = getString(R.string.drawer_open_title)
+            }
+            override fun onDrawerClosed(drawerView: View) {
+                super.onDrawerOpened(drawerView)
+                toolbar.title = getString(R.string.app_name)
+            }
+        }
         // open/close th drawer (with animation)
         drawerLayout.addDrawerListener(drawerToggle)
 
@@ -31,6 +42,7 @@ class NavigationDrawerActivity : AppCompatActivity() {
 
                     // Add code here to update the UI based on the item selected
                     // For example, swap UI fragments here
+                    Toast.makeText(this, menuItem.title, Toast.LENGTH_SHORT).show()
 
                     true
                 })
